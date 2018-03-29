@@ -4,6 +4,18 @@
 #define MAX_MSG_LEN	256
 #define SERVER_IP "192.168.219.101"
 
+SOCKADDR_IN sockArr;
+
+void RecvThreadFunction(void *param)
+{
+	SOCKET sock = (SOCKET)param;
+	char msg[MAX_MSG_LEN] = { 0, };
+	while (recv(sock, msg, MAX_MSG_LEN, 0) > 0)
+	{
+		printf("%s\n", msg);
+	}
+	closesocket(sock);
+}
 
 int main()
 {
@@ -28,6 +40,10 @@ int main()
 		return -1;
 	}
 
+	int length = sizeof(SOCKADDR_IN);
+	getpeername(sock, (sockaddr *)&sockArr, &length);
+
+	_beginthread(RecvThreadFunction, 0, (void *)sock);
 	char msg[MAX_MSG_LEN] = { 0, };
 	while (true)
 	{
@@ -38,14 +54,8 @@ int main()
 		{
 			break;
 		}
-
-		recv(sock, msg, MAX_MSG_LEN, 0);
-		printf("received : %s\n", msg);
 	}
-
 	closesocket(sock);
-
 	WSACleanup();
-
 	return 0;
 }
