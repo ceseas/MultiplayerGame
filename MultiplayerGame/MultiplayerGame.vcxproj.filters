@@ -3,8 +3,16 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Common.cpp" />
+    <ClCompile Include="UDPSocket.cpp" />
+    <ClCompile Include="SocketUtil.cpp" />
+    <ClCompile Include="TCPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
+    <ClInclude Include="SocketAddress.h" />
+    <ClInclude Include="SocketAddressFactory.h" />
+    <ClInclude Include="SocketUtil.h" />
+    <ClInclude Include="UDPSocket.h" />
+    <ClInclude Include="TCPSocket.h" />
   </ItemGroup>
 </Project>
