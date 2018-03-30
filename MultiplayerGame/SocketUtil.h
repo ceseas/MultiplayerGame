@@ -4,6 +4,7 @@
 #include "Common.h"
 
 #include "UDPSocket.h"
+#include "TCPSocket.h"
 
 enum SocketAddressFamily
 {
@@ -19,6 +20,14 @@ public :
 	static int GetLastError();
 
 	static UDPSocketPtr CreateUDPSocket(SocketAddressFamily family);
+
+	static fd_set *FillSetFromVector(fd_set &set, const std::vector<TCPSocketPtr> *sockets);
+	static void FillVectorFromSet(std::vector<TCPSocketPtr> *outSockets, 
+								  const std::vector<TCPSocketPtr> *inSockets, 
+								  const fd_set &set);
+	static int Select(const std::vector<TCPSocketPtr> *inReadSet, std::vector<TCPSocketPtr> *outReadSet,
+					  const std::vector<TCPSocketPtr> *inWriteSet, std::vector<TCPSocketPtr> *outWriteSet,
+					  const std::vector<TCPSocketPtr> *inExceptSet, std::vector<TCPSocketPtr> *outExceptSet);
 
 
 private :

@@ -1,7 +1,12 @@
 #ifndef SOCKET_ADDRESS_H
 #define SOCKET_ADDRESS_H
 
-#include "Common.h"
+#include <WinSock2.h>
+#include <memory>
+#include "TypeDef.h"
+
+class SocketAddress;
+using SocketAddressPtr = std::shared_ptr<SocketAddress>;
 
 class SocketAddress
 {
@@ -27,14 +32,12 @@ public :
 
 private :
 
-
 	sockaddr_in *GetSockAddrIn()
 	{
 		return &_socketAddr;
 	}
 };
 
-using SocketAddressPtr = std::shared_ptr<SocketAddress>;
 
 
 #endif

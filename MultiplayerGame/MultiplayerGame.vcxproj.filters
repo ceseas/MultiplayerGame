@@ -3,16 +3,84 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Common.cpp" />
-    <ClCompile Include="UDPSocket.cpp" />
-    <ClCompile Include="SocketUtil.cpp" />
-    <ClCompile Include="TCPSocket.cpp" />
+    <ClCompile Include="OutputMemoryStream.cpp">
+      <Filter>Streams</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketUtil.cpp">
+      <Filter>Sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPSocket.cpp">
+      <Filter>Sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="UDPSocket.cpp">
+      <Filter>Sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="InputMemoryStream.cpp">
+      <Filter>Streams</Filter>
+    </ClCompile>
+    <ClCompile Include="RoboCat.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkingContext.cpp" />
+    <ClCompile Include="Reflections.cpp">
+      <Filter>Reflections</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketAddressFactory.cpp">
+      <Filter>Sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketAddress.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
-    <ClInclude Include="SocketAddress.h" />
-    <ClInclude Include="SocketAddressFactory.h" />
-    <ClInclude Include="SocketUtil.h" />
-    <ClInclude Include="UDPSocket.h" />
-    <ClInclude Include="TCPSocket.h" />
+    <ClInclude Include="OutputMemoryStream.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketUtil.h">
+      <Filter>Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPSocket.h">
+      <Filter>Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="UDPSocket.h">
+      <Filter>Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketAddress.h">
+      <Filter>Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketAddressFactory.h">
+      <Filter>Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="InputMemoryStream.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="ByteSwap.h" />
+    <ClInclude Include="GameObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="RoboCat.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkingContext.h" />
+    <ClInclude Include="MemoryStream.h">
+      <Filter>Streams</Filter>
+    </ClInclude>
+    <ClInclude Include="Reflections.h">
+      <Filter>Reflections</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeDef.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Sockets">
+      <UniqueIdentifier>{386e47f5-1110-4219-ada5-2ac6a9b7bf3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Streams">
+      <UniqueIdentifier>{291b4e2b-da18-4e34-af99-c3b17f0c3da0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{86a9a65d-4fbc-4dcf-bcbd-68b2d8d93d85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reflections">
+      <UniqueIdentifier>{7a6999bb-2385-4ed6-ae07-1faaf913834f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

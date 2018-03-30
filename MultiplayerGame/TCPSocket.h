@@ -1,10 +1,12 @@
 #ifndef TCP_SOCKET_H
 #define TCP_SOCKET_H
 
-#include "Common.h"
+//#include "Common.h"
 #include "SocketAddress.h"
 
-using TCPSocketPtr = std::shared_ptr<TCPSocketPtr>;
+
+class TCPSocket;
+using TCPSocketPtr = std::shared_ptr<TCPSocket>;
 
 class TCPSocket
 {

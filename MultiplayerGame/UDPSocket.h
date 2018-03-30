@@ -3,7 +3,7 @@
 
 #include "SocketAddress.h"
 
-#include "Common.h"
+//#include "Common.h"
 
 class UDPSocket
 {
@@ -13,6 +13,8 @@ public :
 	int Bind(const SocketAddress &toAddress);
 	int SendTo(const void *data, int len, const SocketAddress &to);
 	int ReceiveFrom(void *buffer, int len, SocketAddress &from);
+
+	int SetNonBlockingMode(bool shouldNoneBlock);
 
 private :
 

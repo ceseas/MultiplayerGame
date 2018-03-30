@@ -10,8 +10,11 @@
 #include <string.h>
 #include <string>
 #include <stdlib.h>
-#include <stdint.h>
 #include <malloc.h>
+
+//STL Containers
+#include <vector>
+#include <unordered_map>
 
 #include <memory>
 
@@ -19,14 +22,23 @@
 
 IN_ADDR GetDefaultMyIP();
 
-typedef uint8_t uint8;
-typedef uint16_t uint16;
-typedef uint32_t uint32;
-typedef uint64_t uint64;
+#define OFFSETOF(c, m) ((size_t) & (static_cast<c *>(nullptr)->m))
 
-typedef int8_t int8;
-typedef int16_t int16;
-typedef int32_t int32;
-typedef int64_t int64;
+class GameObject;
+
+#include "SocketAddress.h"
+#include "SocketAddressFactory.h"
+
+#include "UDPSocket.h"
+#include "TCPSocket.h"
+#include "SocketUtil.h"
+
+#include "ByteSwap.h"
+#include "InputMemoryStream.h"
+#include "OutputMemoryStream.h"
+
+#include "LinkingContext.h"
+
+#include "Reflections.h"
 
 #endif

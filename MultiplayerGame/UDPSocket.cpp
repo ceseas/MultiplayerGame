@@ -43,3 +43,22 @@ int UDPSocket::ReceiveFrom(void * buffer, int len, SocketAddress & from)
 	SocketUtil::ReportError("UDPSocket::ReceiveFrom");
 	return SocketUtil::GetLastError();
 }
+
+int UDPSocket::SetNonBlockingMode(bool shouldNoneBlock)
+{
+#if _WIN32	
+	u_long arg = shouldNoneBlock ? 1 : 0;
+	int result = ioctlsocket(_socket, FIONBIO, &arg);
+//#else 
+//	int flags = fcntl(_socket, F_GETFL, 0);
+//	flags = 
+#endif
+
+	if (result != SOCKET_ERROR)
+	{
+		return NO_ERROR;
+	}
+
+	SocketUtil::ReportError("UDPSOcket::SetNonBlockingMode");
+	return SocketUtil::GetLastError();
+}
