@@ -1,9 +1,11 @@
 #ifndef UDP_SOCKET_H
 #define UDP_SOCKET_H
 
-#include "SocketAddress.h"
+class SocketAddress;
+#include "Sockets.h"
 
-//#include "Common.h"
+class UDPSocket;
+using UDPSocketSPtr = std::shared_ptr<UDPSocket>;
 
 class UDPSocket
 {
@@ -18,7 +20,7 @@ public :
 
 private :
 
-	friend class SocketUtil;
+	friend class SocketUtils;
 	UDPSocket(SOCKET socket) 
 		:_socket(socket)
 	{
@@ -26,6 +28,5 @@ private :
 	SOCKET _socket;
 };
 
-using UDPSocketPtr = std::shared_ptr<UDPSocket>;
 
 #endif 

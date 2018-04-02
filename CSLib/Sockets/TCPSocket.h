@@ -1,12 +1,11 @@
 #ifndef TCP_SOCKET_H
 #define TCP_SOCKET_H
 
-//#include "Common.h"
-#include "SocketAddress.h"
-
+class SocketAddress;
+#include "Sockets.h"
 
 class TCPSocket;
-using TCPSocketPtr = std::shared_ptr<TCPSocket>;
+using TCPSocketSPtr = std::shared_ptr<TCPSocket>;
 
 class TCPSocket
 {
@@ -16,13 +15,13 @@ public :
 	int Connect(const SocketAddress &address);
 	int Bind(const SocketAddress &address);
 	int Listen(int backLog = 32);
-	TCPSocketPtr Accept(SocketAddress &fromAddress);
+	TCPSocketSPtr Accept(SocketAddress &fromAddress);
 	int Send(const void *data, int len);
 	int Receive(void *buffer, int len);
 
 private :
 
-	friend class SocketUtil;
+	friend class SocketUtils;
 
 	TCPSocket(SOCKET sock)
 		:_socket(sock)
