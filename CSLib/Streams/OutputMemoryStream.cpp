@@ -1,9 +1,8 @@
 #include "OutputMemoryStream.h"
 
-#include "Common.h"
 
 OutputMemoryStream::OutputMemoryStream()
-	:_buffer(nullptr), _head(0), _capacity(0), _context(nullptr)
+	:_buffer(nullptr), _head(0), _capacity(0)
 {
 	ReallocateBuffer(32);
 }
@@ -39,11 +38,11 @@ void OutputMemoryStream::Write(int32 data)
 	Write(&data, sizeof(data));
 }
 
-void OutputMemoryStream::Write(const GameObject * go)
-{
-	uint32 networkId = _context->GetNetworkId(const_cast<GameObject *>(go), false);
-	Write(networkId);
-}
+//void OutputMemoryStream::Write(const GameObject * go)
+//{
+//	uint32 networkId = _context->GetNetworkId(const_cast<GameObject *>(go), false);
+//	Write(networkId);
+//}
 
 void OutputMemoryStream::ReallocateBuffer(uint32 length)
 {

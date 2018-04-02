@@ -1,15 +1,10 @@
 #ifndef MEMORY_STREAM_H
 #define MEMORY_STREAM_H
 
-#include "TypeDef.h"
-#include <memory>
-#include <vector>
+#include "../CommonInclude.h"
 
 #define STREAM_ENDIANESS 0
 #define PLATFORM_ENDIANNESS 0
-
-class GameObject;
-class LinkingContext;
 
 class MemoryStream
 {

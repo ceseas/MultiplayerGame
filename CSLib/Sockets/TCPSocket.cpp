@@ -11,9 +11,8 @@ TCPSocket::~TCPSocket()
 int TCPSocket::Connect(const SocketAddress & address)
 {
 	int err = connect(_socket, (const sockaddr *)address.GetAddressPtr(), address.GetSize());
-	if (err >= 0)
+	if (err != SOCKET_ERROR)
 	{
-	
 		return NO_ERROR;
 	}
 	SocketUtils::ReportError("TCPSocket::Connect");
@@ -23,7 +22,7 @@ int TCPSocket::Connect(const SocketAddress & address)
 int TCPSocket::Bind(const SocketAddress & address)
 {
 	int err = bind(_socket, (const sockaddr *)address.GetAddressPtr(), address.GetSize());
-	if (err == 0)
+	if (err != SOCKET_ERROR)
 	{
 		return NO_ERROR;
 	}
@@ -35,7 +34,7 @@ int TCPSocket::Bind(const SocketAddress & address)
 int TCPSocket::Listen(int backLog)
 {
 	int err = listen(_socket, backLog);
-	if (err >= 0)
+	if (err != SOCKET_ERROR)
 	{
 		return NO_ERROR;
 	}
@@ -63,7 +62,7 @@ int TCPSocket::Send(const void * data, int len)
 		return byteSentCount;
 	}
 	SocketUtils::ReportError("TCPSocket::Send");
-	return SocketUtils::GetLastError();
+	return byteSentCount;
 }
 
 int TCPSocket::Receive(void * buffer, int len)
@@ -74,5 +73,24 @@ int TCPSocket::Receive(void * buffer, int len)
 		return byteReceivedCount;
 	}
 	SocketUtils::ReportError("TCPSocket::Receive");
+	return byteReceivedCount;
+}
+
+int TCPSocket::SetNonBlockingMode(bool shouldNoneBlock)
+{
+#if _WIN32	
+	u_long arg = shouldNoneBlock ? 1 : 0;
+	int result = ioctlsocket(_socket, FIONBIO, &arg);
+//#else 
+//	int flags = fcntl(_socket, F_GETFL, 0);
+//	flags = 
+#endif
+
+	if (result != SOCKET_ERROR)
+	{
+		return NO_ERROR;
+	}
+
+	SocketUtils::ReportError("TCPSocket::SetNonBlockingMode");
 	return SocketUtils::GetLastError();
 }

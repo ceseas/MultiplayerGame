@@ -1,10 +1,8 @@
 #include "InputMemoryStream.h"
 
-#include "LinkingContext.h"
-#include "GameObject.h"
 
 InputMemoryStream::InputMemoryStream(int8 *buffer, uint32 byteCount)
-	:_buffer(buffer), _capacity(byteCount), _context(nullptr)
+	:_buffer(buffer), _capacity(byteCount)
 {
 }
 
@@ -45,9 +43,9 @@ void InputMemoryStream::Read(int32 & data)
 	Read(&data, sizeof(data));
 }
 
-void InputMemoryStream::Read(GameObject & go)
-{
-	uint32 networkId;
-	Read(networkId);
-	go = *_context->GetGameObject(networkId);
-}
+//void InputMemoryStream::Read(GameObject & go)
+//{
+//	uint32 networkId;
+//	Read(networkId);
+//	go = *_context->GetGameObject(networkId);
+//}

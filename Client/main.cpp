@@ -1,61 +1,62 @@
-#include "../MultiplayerGame/Common.h"
+#include "stdafx.h"
 
-#define PORT_NUM 10200
-#define MAX_MSG_LEN	256
-#define SERVER_IP "192.168.219.101"
 
-SOCKADDR_IN sockArr;
+bool gRunning = false;
 
-void RecvThreadFunction(void *param)
+void ReceiveMessage(TCPSocketSPtr sock)
 {
-	SOCKET sock = (SOCKET)param;
-	char msg[MAX_MSG_LEN] = { 0, };
-	while (recv(sock, msg, MAX_MSG_LEN, 0) > 0)
+	char buffer[256] = { 0, };
+	while (gRunning)
 	{
-		printf("%s\n", msg);
+		if (sock->Receive(buffer, sizeof(buffer)) > 0)
+		{
+			std::cout << buffer << std::endl;
+		}
+		ZeroMemory(buffer, sizeof(buffer));
 	}
-	closesocket(sock);
 }
 
 int main()
 {
-	WSADATA wsaData = { 0, };
-	WSAStartup(MAKEWORD(2, 2), &wsaData);
 
-	SOCKET sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-	if (sock == INVALID_SOCKET)
+	NetworkManager manager;
+	manager.Init();
+
+	SocketAddress address(inet_addr("192.168.219.154"), 1020);
+	TCPSocketSPtr sock = SocketUtils::CreateTCPSocket(SocketAddressFamily::INET);
+
+	//sock->SetNonBlockingMode(true);
+
+	if (sock->Connect(address) == NO_ERROR)
 	{
-		return -1;
+		gRunning = true;
 	}
 
-	SOCKADDR_IN serveraddr = { 0, };
-	serveraddr.sin_family = AF_INET;
-	serveraddr.sin_addr.s_addr = inet_addr(SERVER_IP);
-	serveraddr.sin_port = htons(PORT_NUM);
+	std::thread receiveThread(ReceiveMessage, sock);
 
-	int r = 0;
-	r = connect(sock, (const sockaddr *)&serveraddr, sizeof(SOCKADDR_IN));
-	if (r == SOCKET_ERROR)
+	char buffer[256] = { 0, };
+	while (gRunning)
 	{
-		return -1;
-	}
+		std::string s;
+		std::cin >> s;
 
-	int length = sizeof(SOCKADDR_IN);
-	getpeername(sock, (sockaddr *)&sockArr, &length);
-
-	_beginthread(RecvThreadFunction, 0, (void *)sock);
-	char msg[MAX_MSG_LEN] = { 0, };
-	while (true)
-	{
-		gets_s(msg, MAX_MSG_LEN);
-		send(sock, msg, sizeof(msg), 0);
-
-		if (strncmp(msg, "exit", MAX_MSG_LEN) == 0)
+		if (s == "exit")
 		{
-			break;
+			gRunning = false;
 		}
+
+		sprintf(buffer, "%s", s.c_str());
+		if (sock->Send(buffer, sizeof(buffer)) > 0)
+		{
+		}
+		ZeroMemory(buffer, sizeof(buffer));
 	}
-	closesocket(sock);
-	WSACleanup();
+
+	receiveThread.join();
+
+	manager.Shutdown();
+
+	int a = 0;
+	std::cin >> a;
 	return 0;
 }

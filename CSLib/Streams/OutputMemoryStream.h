@@ -2,8 +2,6 @@
 #define OUTPUT_MEMORY_STREAM_H
 
 #include "MemoryStream.h"
-class GameObject;
-class LinkingContext;
 
 class OutputMemoryStream : public MemoryStream
 {
@@ -24,7 +22,7 @@ public :
 
 	void Write(uint32 data);
 	void Write(int32 data);
-	void Write(const GameObject *go);
+	//void Write(const GameObject *go);
 
 	const int8 *GetBufferPtr() const { return _buffer; }
 	uint32 GetLength() const { return _capacity; }
@@ -37,7 +35,6 @@ private :
 	uint32 _head;
 	uint32 _capacity;
 
-	LinkingContext *_context;
 };
 
 template<typename T>

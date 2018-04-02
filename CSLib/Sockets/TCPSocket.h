@@ -19,6 +19,8 @@ public :
 	int Send(const void *data, int len);
 	int Receive(void *buffer, int len);
 
+	int SetNonBlockingMode(bool shouldNoneBlock);
+
 private :
 
 	friend class SocketUtils;

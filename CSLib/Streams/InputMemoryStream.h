@@ -3,9 +3,6 @@
 
 #include "MemoryStream.h"
 
-class GameObject;
-class LinkingContext;
-
 class InputMemoryStream : public MemoryStream
 {
 public :
@@ -26,14 +23,13 @@ public :
 
 	void Read(uint32 &data);
 	void Read(int32 &data);
-	void Read(GameObject &go);
+	//void Read(GameObject &go);
 
 private :
 	int8 *_buffer;
 	uint32 _head;
 	uint32 _capacity;
 
-	LinkingContext *_context;
 };
 
 

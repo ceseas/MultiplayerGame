@@ -22,7 +22,13 @@ UDPSocketSPtr SocketUtils::CreateUDPSocket(SocketAddressFamily family)
 
 TCPSocketSPtr SocketUtils::CreateTCPSocket(SocketAddressFamily family)
 {
-	return TCPSocketSPtr();
+	SOCKET s = socket(family, SOCK_STREAM, IPPROTO_TCP);
+	if (s != INVALID_SOCKET)
+	{
+		return TCPSocketSPtr(new TCPSocket(s));
+	}
+	ReportError("SocketUtils::CreateTCPSocket");
+	return nullptr;
 }
 
 fd_set * SocketUtils::FillSetFromVector(fd_set & set, const std::vector<TCPSocketSPtr>* sockets)

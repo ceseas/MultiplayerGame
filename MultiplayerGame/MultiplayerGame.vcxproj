@@ -84,8 +84,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -143,41 +142,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Common.cpp" />
-    <ClCompile Include="InputMemoryStream.cpp" />
-    <ClCompile Include="LinkingContext.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="OutputMemoryStream.cpp" />
-    <ClCompile Include="Reflections.cpp" />
-    <ClCompile Include="ReplicationHeader.cpp" />
-    <ClCompile Include="ReplicationManager.cpp" />
-    <ClCompile Include="RoboCat.cpp" />
-    <ClCompile Include="SocketAddress.cpp" />
-    <ClCompile Include="SocketAddressFactory.cpp" />
-    <ClCompile Include="SocketUtil.cpp" />
-    <ClCompile Include="TCPSocket.cpp" />
-    <ClCompile Include="UDPSocket.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ByteSwap.h" />
-    <ClInclude Include="Common.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="InputMemoryStream.h" />
-    <ClInclude Include="LinkingContext.h" />
-    <ClInclude Include="MemoryStream.h" />
-    <ClInclude Include="ObjectCreationRegistry.h" />
-    <ClInclude Include="OutputMemoryStream.h" />
-    <ClInclude Include="Reflections.h" />
-    <ClInclude Include="ReplicationHeader.h" />
-    <ClInclude Include="ReplicationManager.h" />
-    <ClInclude Include="RoboCat.h" />
-    <ClInclude Include="SingletonBase.h" />
-    <ClInclude Include="SocketAddress.h" />
-    <ClInclude Include="SocketAddressFactory.h" />
-    <ClInclude Include="SocketUtil.h" />
-    <ClInclude Include="TCPSocket.h" />
-    <ClInclude Include="TypeDef.h" />
-    <ClInclude Include="UDPSocket.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

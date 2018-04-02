@@ -21,16 +21,25 @@
   <ItemGroup>
     <ClInclude Include="CSLib.h" />
     <ClInclude Include="SocketAddress.h" />
+    <ClInclude Include="NetworkManager.h" />
+    <ClInclude Include="CommonInclude.h" />
     <ClInclude Include="Sockets\Sockets.h" />
     <ClInclude Include="Sockets\SocketUtils.h" />
     <ClInclude Include="Sockets\TCPSocket.h" />
     <ClInclude Include="Sockets\UDPSocket.h" />
+    <ClInclude Include="Streams\InputMemoryStream.h" />
+    <ClInclude Include="Streams\MemoryStream.h" />
+    <ClInclude Include="Streams\OutputMemoryStream.h" />
+    <ClInclude Include="Streams\Streams.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SocketAddress.cpp" />
+    <ClCompile Include="NetworkManager.cpp" />
     <ClCompile Include="Sockets\SocketUtils.cpp" />
     <ClCompile Include="Sockets\TCPSocket.cpp" />
     <ClCompile Include="Sockets\UDPSocket.cpp" />
+    <ClCompile Include="Streams\InputMemoryStream.cpp" />
+    <ClCompile Include="Streams\OutputMemoryStream.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5915C27A-195A-4630-89FA-004BBC5EDFE7}</ProjectGuid>
