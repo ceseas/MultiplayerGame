@@ -1,7 +1,7 @@
 #ifndef BYTE_SWAP_H
 #define BYTE_SWAP_H
 
-#include "TypeDef.h"
+#include "CommonInclude.h"
 
 inline uint16 ByteSwap2(uint16 data)
 {

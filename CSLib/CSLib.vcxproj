@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ByteSwap.h" />
     <ClInclude Include="CSLib.h" />
+    <ClInclude Include="Reflections\Reflections.h" />
     <ClInclude Include="SocketAddress.h" />
     <ClInclude Include="NetworkManager.h" />
     <ClInclude Include="CommonInclude.h" />
@@ -33,6 +35,7 @@
     <ClInclude Include="Streams\Streams.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Reflections\Reflections.cpp" />
     <ClCompile Include="SocketAddress.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
     <ClCompile Include="Sockets\SocketUtils.cpp" />

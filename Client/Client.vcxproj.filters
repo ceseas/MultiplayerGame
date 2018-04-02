@@ -6,5 +6,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="..\CSLib\ByteSwap.h" />
   </ItemGroup>
 </Project>

@@ -1,29 +1,32 @@
 #ifndef REFLECTIONS_H
 #define REFLECTIONS_H
 
-#include "Common.h"
+#include "../CommonInclude.h"
 
-enum EPrimitiveType
+enum PrimitiveType
 {
-	EPT_Int,
-	EPT_String,
-	EPT_Float,
+	PT_Int,
+	PT_String,
+	PT_Float,
+	PT_Vector,
+	PT_Map,
+	PT_COUNT,
 };
 
 
 class MemberVariable
 {
 public :
-	MemberVariable(const char *name, EPrimitiveType type, uint32 offset);
+	MemberVariable(const char *name, PrimitiveType type, uint32 offset);
 
 	std::string GetName() { return _name; }
-	EPrimitiveType GetType() { return _type; }
+	PrimitiveType GetType() { return _type; }
 	uint32 GetOffset() { return _offset; }
 
 private :
 
 	std::string _name;
-	EPrimitiveType _type;
+	PrimitiveType _type;
 	uint32 _offset;
 };
 
