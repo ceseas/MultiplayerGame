@@ -2,9 +2,10 @@
 
 int main()
 {
-
 	WSAData data = { 0, };
 	WSAStartup(MAKEWORD(2, 2), &data);
+
+
 
 	sockaddr_in add = { 0, };
 	add.sin_family = AF_INET;

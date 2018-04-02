@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Common.cpp" />
     <ClCompile Include="OutputMemoryStream.cpp">
       <Filter>Streams</Filter>
     </ClCompile>
@@ -28,10 +27,20 @@
     <ClCompile Include="SocketAddressFactory.cpp">
       <Filter>Sockets</Filter>
     </ClCompile>
-    <ClCompile Include="SocketAddress.cpp" />
+    <ClCompile Include="Common.cpp">
+      <Filter>Commons</Filter>
+    </ClCompile>
+    <ClCompile Include="SocketAddress.cpp">
+      <Filter>Sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplicationManager.cpp">
+      <Filter>Replications</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplicationHeader.cpp">
+      <Filter>Replications</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Common.h" />
     <ClInclude Include="OutputMemoryStream.h">
       <Filter>Streams</Filter>
     </ClInclude>
@@ -68,6 +77,21 @@
       <Filter>Reflections</Filter>
     </ClInclude>
     <ClInclude Include="TypeDef.h" />
+    <ClInclude Include="ObjectCreationRegistry.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="SingletonBase.h">
+      <Filter>Commons</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplicationManager.h">
+      <Filter>Replications</Filter>
+    </ClInclude>
+    <ClInclude Include="ReplicationHeader.h">
+      <Filter>Replications</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Sockets">
@@ -81,6 +105,12 @@
     </Filter>
     <Filter Include="Reflections">
       <UniqueIdentifier>{7a6999bb-2385-4ed6-ae07-1faaf913834f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Commons">
+      <UniqueIdentifier>{54f5d34b-daa1-4c11-a0ee-bcaba0f08ae0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Replications">
+      <UniqueIdentifier>{b7502dea-52f3-4478-8808-f821a4b776ba}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

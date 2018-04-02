@@ -26,6 +26,14 @@ IN_ADDR GetDefaultMyIP();
 
 class GameObject;
 
+enum PacketType
+{
+	PT_Hello,
+	PT_ReplicationData,
+	PT_Disconnect,
+	PT_MAX,
+};
+
 #include "SocketAddress.h"
 #include "SocketAddressFactory.h"
 
@@ -40,5 +48,7 @@ class GameObject;
 #include "LinkingContext.h"
 
 #include "Reflections.h"
+
+#include "ObjectCreationRegistry.h"
 
 #endif

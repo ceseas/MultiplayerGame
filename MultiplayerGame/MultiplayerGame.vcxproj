@@ -149,6 +149,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OutputMemoryStream.cpp" />
     <ClCompile Include="Reflections.cpp" />
+    <ClCompile Include="ReplicationHeader.cpp" />
+    <ClCompile Include="ReplicationManager.cpp" />
     <ClCompile Include="RoboCat.cpp" />
     <ClCompile Include="SocketAddress.cpp" />
     <ClCompile Include="SocketAddressFactory.cpp" />
@@ -163,9 +165,13 @@
     <ClInclude Include="InputMemoryStream.h" />
     <ClInclude Include="LinkingContext.h" />
     <ClInclude Include="MemoryStream.h" />
+    <ClInclude Include="ObjectCreationRegistry.h" />
     <ClInclude Include="OutputMemoryStream.h" />
     <ClInclude Include="Reflections.h" />
+    <ClInclude Include="ReplicationHeader.h" />
+    <ClInclude Include="ReplicationManager.h" />
     <ClInclude Include="RoboCat.h" />
+    <ClInclude Include="SingletonBase.h" />
     <ClInclude Include="SocketAddress.h" />
     <ClInclude Include="SocketAddressFactory.h" />
     <ClInclude Include="SocketUtil.h" />

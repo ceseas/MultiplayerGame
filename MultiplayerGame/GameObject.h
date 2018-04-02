@@ -3,15 +3,35 @@
 
 #include "Common.h"
 
+#define CLASS_IDENTIFICATION(Code, Class) \
+	enum {EClassId = Code}; \
+	virtual uint32 GetClassId() const {return EClassId;} \
+	static Class *CreateInstance() {return new Class();}
+
 class GameObject
 {
-public :
-
+public:
 	virtual ~GameObject()
 	{
 	}
 
-	virtual void Update() = 0;
+	virtual void Update()
+	{
+	}
+
+	virtual void Write(OutputMemoryStream &stream)
+	{
+	}
+
+	virtual void Read(InputMemoryStream &stream)
+	{
+	}
+
+	virtual void Destroy()
+	{
+	}
+
+	CLASS_IDENTIFICATION('GOBJ', GameObject)
 
 private :
 

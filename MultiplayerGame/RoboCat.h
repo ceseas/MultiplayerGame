@@ -26,6 +26,7 @@ public :
 			MemberVariable("_name", EPT_String, OFFSETOF(RoboCat, _name))
 		});
 	}
+	CLASS_IDENTIFICATION('ROCT', RoboCat)
 
 private :
 
